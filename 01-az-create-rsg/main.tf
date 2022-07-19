@@ -1,5 +1,5 @@
 #https://docs.microsoft.com/en-us/azure/developer/terraform/create-resource-group?tabs=azure-cli
-
+#test2
 resource "random_pet" "rg-name" {
   prefix    = var.resource_group_name_prefix
 }
