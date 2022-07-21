@@ -4,6 +4,14 @@ resource "azurerm_resource_group" "gslab-vm" {
   location = "southindia"
 }
 
+
+resource "azurerm_resource_group" "gslab-vm-001" {
+  name     = "gslab-vm-resources-001"
+  location = "southindia"
+}
+
+
+
 # VNET resource block , the location and rsg name is referenced from previous resource block
 resource "azurerm_virtual_network" "gslab-vm" {
   name                = "gslab-vm-network"
