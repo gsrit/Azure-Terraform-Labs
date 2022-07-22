@@ -1,3 +1,5 @@
+https://docs.microsoft.com/en-us/azure/developer/terraform/create-resource-group?tabs=azure-cli
+
 #resource "azurerm_virtual_network" "gslab-vnet" {
 #  name                = "gslab-network"
 #  address_space       = ["10.1.0.0/16"]
@@ -20,19 +22,11 @@
 #}
 
 
-resource "azurerm_network_security_group" "gslab-nsg002" {
-  name                = "gslab-security-group"
-  location            = "southindia"
-  resource_group_name = "gslab-rsg001"
+resource "random_pet" "rg-name" {
+  prefix    = var.resource_group_name_prefix
 }
 
-resource "azurerm_virtual_network" "gslab-vnet" {
-  name                = "gslab-vnet"
-  location            = "southindia"
-  resource_group_name = "gslab-rsg001"
-  address_space       = ["10.0.0.0/16"]
-  subnet {
-    name           = "subnet1"
-    address_prefix = "10.0.1.0/24"
-  }
+resource "azurerm_resource_group" "rg" {
+  name      = random_pet.rg-name.id
+  location  = var.resource_group_location
 }
