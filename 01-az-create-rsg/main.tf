@@ -2,9 +2,6 @@
 
 
 
-
-
-
 resource "azurerm_resource_group" "rsg-prd001" {
   name      = "gslab-rsg001"
   location  = "southindia"
