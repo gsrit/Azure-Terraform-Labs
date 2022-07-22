@@ -1,4 +1,4 @@
-https://docs.microsoft.com/en-us/azure/developer/terraform/create-resource-group?tabs=azure-cli
+#https://docs.microsoft.com/en-us/azure/developer/terraform/create-resource-group?tabs=azure-cli
 
 #resource "azurerm_virtual_network" "gslab-vnet" {
 #  name                = "gslab-network"
@@ -30,3 +30,5 @@ resource "azurerm_resource_group" "rg" {
   name      = random_pet.rg-name.id
   location  = var.resource_group_location
 }
+
+# MD2
