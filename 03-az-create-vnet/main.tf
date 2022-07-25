@@ -20,16 +20,16 @@
 #}
 
 
-#resource "azurerm_network_security_group" "gslab-nsg002" {
-#  name                = "gslab-security-group"
-#  location            = "southindia"
-#  resource_group_name = "gslab-rsg001"
-#}
+resource "azurerm_network_security_group" "gslab-nsg002" {
+  name                = "gslab-security-group"
+  location            = "southindia"
+  resource_group_name = "gslab-rsg001"
+}
 
 resource "azurerm_virtual_network" "gslab-vnet" {
   name                = "gslab-vnet"
   location            = "southindia"
-  resource_group_name = "azlab--adequately--thorough--monitor"
+  resource_group_name = "gslab-rsg001"
   address_space       = ["10.0.0.0/16"]
   subnet {
     name           = "subnet1"
