@@ -46,7 +46,7 @@ resource "azurerm_windows_virtual_machine" "gslab-vm" {
   location            = azurerm_resource_group.gslab-vm.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
-  admin_password      = "test@#$567AZVM"
+  admin_password      = "password"
   network_interface_ids = [
     azurerm_network_interface.gslab-vm.id,
   ]
