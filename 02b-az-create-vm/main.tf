@@ -43,8 +43,36 @@ resource "azurerm_network_interface" "aznetworkinterface" {
     name                          = "aznetworkinterfaceip"
     subnet_id                     = azurerm_subnet.azsubnet1.id
     private_ip_address_allocation = "Dynamic"
+    
   }
 }
+
+
+
+## Adding Public IP with a new network interface
+resource "azurerm_public_ip" "public_ip" {
+  name                = "vm_public_ip"
+  resource_group_name = azurerm_resource_group.azvm-rg.name
+  location            = azurerm_resource_group.azvm-rg.location
+  allocation_method   = "Dynamic"
+}
+
+
+resource "azurerm_network_interface" "example" {
+  name                = "example-nic"
+  location            = azurerm_resource_group.azvm-rg.location
+  resource_group_name = azurerm_resource_group.azvm-rg.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.azsubnet1.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.public_ip.id
+  }
+}
+
+
+
 
 # az vm image list --output table
 # az vm image list --all
@@ -56,7 +84,8 @@ resource "azurerm_windows_virtual_machine" "winvm1" {
   admin_username        = "azureuser"
   location              = azurerm_resource_group.azvm-rg.location
   name                  = "winvm1"
-  network_interface_ids = [azurerm_network_interface.aznetworkinterface.id]
+  #network_interface_ids = [azurerm_network_interface.aznetworkinterface.id]
+  network_interface_ids = [azurerm_network_interface.example.id]
   resource_group_name   = azurerm_resource_group.azvm-rg.name
   size                  = "standard_f2"
   os_disk {
