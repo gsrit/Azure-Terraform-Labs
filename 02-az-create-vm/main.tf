@@ -40,6 +40,7 @@ resource "azurerm_network_interface" "gslab-vm" {
   }
 }
 
+#az vm list-sizes --location west-us  =Command to view the list of sizes supported in different regions
 resource "azurerm_windows_virtual_machine" "gslab-vm" {
   name                = "gslab-vm-win"
   resource_group_name = azurerm_resource_group.gslab-vm.name
