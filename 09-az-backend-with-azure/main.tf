@@ -16,13 +16,13 @@ terraform {
   # Add Resource Group / Storage Account Name / Container Name
   
   backend "azurerm" {
-    resource_group_name = "value"
-    storage_account_name = "value"
-    container_name = "value"
+    resource_group_name = "tfstateRG01"
+    storage_account_name = "tfstate01418297508"
+    container_name = "tfstate"
+    key = "terraform.tfstate"
   }
 
 }
-
 
 provider "azurerm" {
   features {}
@@ -30,7 +30,7 @@ provider "azurerm" {
 
 
 ###########################################################################
-
+/*()
 #  VM resource Block
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -50,3 +50,11 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 }
 
 # Backend Configurationdata 
+
+*/
+
+
+resource "azurerm_resource_group" "rg" {
+  name      = "test-rsg-tf-backend"
+  location  = "southindia"
+}
