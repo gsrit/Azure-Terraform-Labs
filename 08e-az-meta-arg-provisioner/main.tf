@@ -58,7 +58,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         inline = [
           "sudo apt-get update",
           "sudo apt-get install docker.io -y",
-          "git clone https://github.com/devopsschool-training-notes/terraform-ey-june-2021",
+          "git clone https://github.com/gsrit",
           "sudo docker run -d -p 80:80 httpd"
         ]
     }
