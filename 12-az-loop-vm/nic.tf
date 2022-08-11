@@ -1,4 +1,4 @@
-resource "azurerm_network_intertace" "nic" {
+resource "azurerm_network_interface" "nic" {
 for_each                = toset(var.vm_name)
 name                    = each.value
 location                = var.location
@@ -12,9 +12,9 @@ private_ip_address_allocation   = "Dynamic"
 
 tags = {
 Environment = "Production "
-Buildby     = "Gourav Kumar"
+Buildby     = "Gaurav Singh"
 Builddate   = "20220611"
-Bugetcode   = "Blog"
+Bugetcode   = "TF-LAB"
 
 }
 }
