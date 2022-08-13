@@ -19,7 +19,7 @@ storage_os_disk {
 name                = "${each.key}-osdisk"
 caching             = "ReadWrite"
 create_option       = "FromImage"
-managed_disk_type   = "Premium_LRS"
+managed_disk_type   = "Standard_LRS"
 disk_size_gb        = "32"
 }
 
@@ -31,7 +31,7 @@ caching                     = "None"
 create_option               = "Empty"
 disk_size_gb                = 512
 lun                         = 0
-managed_disk_type           = "Premium_LRS"
+managed_disk_type           = "Standard_LRS"
 }
 
 os_profile {
@@ -48,7 +48,7 @@ disable_password_authentication = false
 
 boot_diagnostics {
 enabled             = "true"
-storage_uri         = azurerm_storage_account. storage.primary_blob_endpoint
+storage_uri         = azurerm_storage_account.storage.primary_blob_endpoint
 }
 
 tags = {
