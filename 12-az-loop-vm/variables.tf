@@ -1,7 +1,7 @@
 variable "vm_name" {
 description         = "Name of the VM."
 type                = list(string)
-default             = [ "labvmtesta", "labvmtestb" ]
+default             = ["labvmtesta", "labvmtestb" ,"labvmtestc", "labvmtestd", "labvmteste", "labvmtestf", "labvmtestm"]
 }
 
 variable "location" {
